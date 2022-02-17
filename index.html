@@ -13,50 +13,50 @@
 </head>
 <body>
   <!-- header starts here  -->
-  <header class="container d-flex align-items-center justify-content-center mt-4">
+  <header class="container d-flex align-items-center justify-content-center mt-4 mb-4">
     <h1 class="d-inline-block me-2 text-success fw-bold">Financial Calculation</h1>
     <img src="./images/money-icon2.png" alt="" width="40em">
   </header>
   <!-- main section starts here   -->
-  <main class="container row">
+  <main class="container row g-5 g-lg-5 mb-5 g-sm-1 main">
     <!-- image section start here  -->
-    <section class="col-7">
-      <img class="img-fluid" src="./images/money-calculate3.jpg" alt="">
+    <section class="col-lg-8 col-xl-8 col-md-7 col-sm-12">
+      <img class="rounded-3 big-image" src="./images/money-calculate3.jpg" alt="" width="100%" height="790em">
     </section>
     <!-- calculation section start here  -->
-    <section class="col-5 bg-light text-center">
+    <section class="col-lg-4 col-xl-4 col-md-5 col-sm-12 p-sm-0 bg-light text-md-center text-lg-center text-sm-start p-lg-5 p-md-5">
       <div>
-        <h3>Income</h3>
-        <p>
+        <h3 class="fw-bold mb-3">Income</h3>
+        <p class="fw-bold mb-4 ">
           Income:
-          <input id="income" type="text">
+          <input id="income" class="input-bg border-0 px-3 py-2 rounded text-black" type="text" placeholder="Your Income">
         </p>
-        <h3>Expenses</h3>
-        <p>
+        <h3 class="fw-bold mb-3">Expenses</h3>
+        <p class="fw-bold">
           Food:
-          <input id="food-fee" type="text">
+          <input id="food-fee" class="input-bg border-0 px-3 py-2 rounded text-black" type="text" placeholder="Food Charge">
         </p>
-        <p>
+        <p class="fw-bold">
           Rent:
-          <input id="rent-fee" type="text">
+          <input id="rent-fee" class="input-bg border-0 px-3 py-2 rounded text-black" type="text" placeholder="Rent Fee">
         </p>
-        <p>
+        <p class="fw-bold">
           Clothes:
-          <input id="clothes-fee" type="text">
+          <input id="clothes-fee" class="input-bg border-0 px-3 py-2 rounded text-black" type="text" placeholder="Clothes Cost">
         </p>
-        <button id="calculate-button">Calculate</button>
-        <h3>Total Expenses: <span id="total-expenses">00</span></h3>
-        <h3>Balance: <span id="balance">00</span></h3>
-        <div class="d-flex align-items-center">
+        <button id="calculate-button" class="btn btn-primary px-4 fw-bold mb-4">Calculate</button>
+        <h3 class="fw-bold mb-3">Total Expenses: <span id="total-expenses">00</span></h3>
+        <h3 class="fw-bold mb-4">Balance: <span id="balance">00</span></h3>
+        <div class="d-flex align-items-center fw-bold mb-4 mx-0">
           <p>
             Save:
-            <input id="save-input" type="text">
+            <input id="save-input" class="input-bg border-0 px-3 py-2 rounded text-black save-width" type="text" placeholder="Saving %">
           </p>
-          <p>%</p>
-          <button id="save-button">Save</button>
+          <p class="me-3">%</p>
+          <button id="save-button" class="btn btn-primary px-4 mt-2 fw-bold mb-4">Save</button>
         </div>
-        <h3>Saving Amount: <span id="saving-amount">00</span></h3>
-        <h3>Remaining Balance: <span id="remaining-balance">00</span></h3>
+        <h3 class="fw-bold mb-3">Saving Amount: <span id="saving-amount">00</span></h3>
+        <h3 class="fw-bold">Remaining Balance: <span id="remaining-balance">00</span></h3>
       </div>
     </section>
   </main>

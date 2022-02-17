@@ -1,0 +1,22 @@
+.main {
+  margin-left: 6em;
+}
+.input-bg {
+  background-color: rgb(204, 204, 204);
+}
+p {
+  font-size: 18px;
+}
+.save-width {
+  width: 60%;
+}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .main {
+    margin-left: 0px;
+  }
+  .big-image {
+    height: 30em;
+    width: 100%;
+  }
+}
