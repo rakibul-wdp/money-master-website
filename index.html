@@ -29,36 +29,38 @@
         <h3>Income</h3>
         <p>
           Income:
-          <input type="text">
+          <input id="income" type="text">
         </p>
         <h3>Expenses</h3>
         <p>
           Food:
-          <input type="text">
+          <input id="food-fee" type="text">
         </p>
         <p>
           Rent:
-          <input type="text">
+          <input id="rent-fee" type="text">
         </p>
         <p>
           Clothes:
-          <input type="text">
+          <input id="clothes-fee" type="text">
         </p>
-        <button>Calculate</button>
-        <h3>Total Expenses: 5500</h3>
-        <h3>Balance: 4500</h3>
+        <button id="calculate-button">Calculate</button>
+        <h3>Total Expenses: <span id="total-expenses">00</span></h3>
+        <h3>Balance: <span id="balance">00</span></h3>
         <div class="d-flex align-items-center">
           <p>
             Save:
-            <input type="text">
+            <input id="save-input" type="text">
           </p>
           <p>%</p>
-          <button>Save</button>
+          <button id="save-button">Save</button>
         </div>
-        <h3>Saving Amount: 2000</h3>
-        <h3>Remaining Balance: 2500</h3>
+        <h3>Saving Amount: <span id="saving-amount">00</span></h3>
+        <h3>Remaining Balance: <span id="remaining-balance">00</span></h3>
       </div>
     </section>
   </main>
+  
+  <script src="./js/index.js"></script>
 </body>
 </html>

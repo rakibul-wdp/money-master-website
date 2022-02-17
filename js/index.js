@@ -1,0 +1,67 @@
+// for expenses
+function calculateExpenses(fee) {
+  let feeNumber = document.getElementById(fee + '-fee');
+  const feeValue = parseFloat(feeNumber.value);
+  return feeValue;
+}
+
+// ki kormu bujissina 
+function textToValue(identity) {
+  const getSomeId = document.getElementById(identity);
+  const textToNumber = parseFloat(getSomeId.value);
+  return textToNumber;
+}
+
+// calculate button work
+document.getElementById('calculate-button').addEventListener('click', function () {
+  const foodFee = calculateExpenses('food');
+  const rentFee = calculateExpenses('rent');
+  const clothesFee = calculateExpenses('clothes');
+
+  const totalFee = foodFee + rentFee + clothesFee;
+
+  // total expenses
+  const totalExpensesGet = document.getElementById("total-expenses");
+  const changeExpenses = totalExpensesGet.innerText = totalFee;
+
+  // get income
+  // const getIncome = document.getElementById("income");
+  // const incomeText = parseFloat(getIncome.value);
+  const forBalance = incomeText - totalFee;
+
+  // update balance
+  const getBalance = document.getElementById("balance");
+  const updateBalance = getBalance.innerText = forBalance;
+})
+
+// save button work
+document.getElementById('save-button').addEventListener('click', function () {
+  // get income
+  const getIncome = document.getElementById("income");
+  const incomeText = parseFloat(getIncome.value);
+
+  // get save input
+  const getSaveInput = document.getElementById('save-input');
+  const saveInputValue = parseFloat(getSaveInput.value);
+  
+  // calculate percentage
+  const calculatePercentage = (saveInputValue / 100) * incomeText;
+
+  // get saving amount
+  const getSavingAmount = document.getElementById('saving-amount');
+  const savingAmount = getSavingAmount.innerText = calculatePercentage;
+
+  //
+  const foodFee = calculateExpenses("food");
+  const rentFee = calculateExpenses("rent");
+  const clothesFee = calculateExpenses("clothes");
+
+  const totalFee = foodFee + rentFee + clothesFee;
+  const forBalance = incomeText - totalFee;
+
+  const lastMoney = forBalance - calculatePercentage;
+
+  // update remaining balance
+  const getRemainingBalance = document.getElementById('remaining-balance');
+  getRemainingBalance.innerText = lastMoney;
+})
