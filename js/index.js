@@ -5,7 +5,7 @@ function calculateExpenses(fee) {
   return feeValue;
 }
 
-// ki kormu bujissina 
+// text to value 
 function textToValue(identity) {
   const getSomeId = document.getElementById(identity);
   const textToNumber = parseFloat(getSomeId.value);
@@ -25,9 +25,8 @@ document.getElementById('calculate-button').addEventListener('click', function (
   const changeExpenses = totalExpensesGet.innerText = totalFee;
 
   // get income
-  // const getIncome = document.getElementById("income");
-  // const incomeText = parseFloat(getIncome.value);
-  const forBalance = incomeText - totalFee;
+  const getIncomeValue = textToValue('income');
+  const forBalance = getIncomeValue - totalFee;
 
   // update balance
   const getBalance = document.getElementById("balance");
@@ -37,12 +36,10 @@ document.getElementById('calculate-button').addEventListener('click', function (
 // save button work
 document.getElementById('save-button').addEventListener('click', function () {
   // get income
-  const getIncome = document.getElementById("income");
-  const incomeText = parseFloat(getIncome.value);
+  const incomeText = textToValue('income');
 
   // get save input
-  const getSaveInput = document.getElementById('save-input');
-  const saveInputValue = parseFloat(getSaveInput.value);
+  const saveInputValue = textToValue('save-input');
   
   // calculate percentage
   const calculatePercentage = (saveInputValue / 100) * incomeText;
