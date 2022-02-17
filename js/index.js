@@ -1,67 +1,62 @@
-// for expenses
-function calculateExpenses(fee) {
-  const feeNumber = document.getElementById(fee + '-fee');
-  const feeValue = parseFloat(feeNumber.value);
-  return feeValue;
+// function for expenses
+function expensesValue(expensesName) {
+  const getExpenses = document.getElementById(expensesName + "-fee");
+  const getExpensesValue = parseFloat(getExpenses.value);
+  return getExpensesValue;
+}
+// sum of total fee
+function sumTotalFee(foodFee, rentFee, clothFee) {
+  const sumTotalFee = foodFee + rentFee + clothFee;
+  return sumTotalFee;
+}
+// catch some input value 
+function stringToNumber(stringInput) {
+  const catchString = document.getElementById(stringInput);
+  const inputValue = parseFloat(catchString.value);
+  return inputValue;
+}
+// change inner text and update amount
+function catchAndUpdate(getId, given) {
+  const getInnerText = document.getElementById(getId);
+  const updateValue = getInnerText.innerText = given;
+  return updateValue;
 }
 
-// text to value 
-function textToValue(identity) {
-  const getSomeId = document.getElementById(identity);
-  const textToNumber = parseFloat(getSomeId.value);
-  return textToNumber;
-}
-
-// change inner text
-function changeInnerText(update, given) {
-  const getInnerText = document.getElementById(update);
-  const changeText = getInnerText.innerText = given;
-  return changeText;
-}
-
-// calculate button work
+// get calculate button
 document.getElementById('calculate-button').addEventListener('click', function () {
-  const foodFee = calculateExpenses('food');
-  const rentFee = calculateExpenses('rent');
-  const clothesFee = calculateExpenses('clothes');
-
-  const totalFee = foodFee + rentFee + clothesFee;
-
-  // total expenses
-  const totalExpensesGet = changeInnerText('total-expenses', totalFee);
-
-  // get income
-  const getIncomeValue = textToValue('income');
-  const forBalance = getIncomeValue - totalFee;
-
-  // update balance
-  const updateBalance = changeInnerText('balance', forBalance);
+  // get expenses input value
+  const getFoodFee = expensesValue('food');
+  const getRentFee = expensesValue('rent');
+  const getClothesFee = expensesValue('clothes');
+  // calculate total expenses fee
+  const totalExpensesFee = sumTotalFee(getFoodFee, getRentFee, getClothesFee);
+  // get total expenses and set value
+  const getAndSetExpenses = catchAndUpdate('total-expenses', totalExpensesFee);
+  // get income value and calculate for balance
+  const getIncomeValue = stringToNumber('income');
+  const calculateBalance = getIncomeValue - totalExpensesFee;
+  // get balance and calculate
+  const updateBalance = catchAndUpdate('balance', calculateBalance);
 })
-
-// save button work
+// get save button
 document.getElementById('save-button').addEventListener('click', function () {
-  // get income
-  const incomeText = textToValue('income');
-
-  // get save input
-  const saveInputValue = textToValue('save-input');
-  
+  // get income value
+  const getIncomeValue = stringToNumber('income');
+  // get save input value
+  const getSavingValue = stringToNumber('save-input');
   // calculate percentage
-  const calculatePercentage = (saveInputValue / 100) * incomeText;
-
-  // get saving amount
-  const savingAmount = changeInnerText('saving-amount', calculatePercentage);
-
-  //
-  const foodFee = calculateExpenses("food");
-  const rentFee = calculateExpenses("rent");
-  const clothesFee = calculateExpenses("clothes");
-
-  const totalFee = foodFee + rentFee + clothesFee;
-  const forBalance = incomeText - totalFee;
-
-  const lastMoney = forBalance - calculatePercentage;
-
-  // update remaining balance
-  const getRemainingBalance = changeInnerText('remaining-balance', lastMoney);
+  const calculatePercentage = (getSavingValue / 100) * getIncomeValue;
+  // get saving amount set value
+  const savingAmount = catchAndUpdate('saving-amount', calculatePercentage);
+  // get again expenses input value and sum 
+  const getFoodFee = expensesValue("food");
+  const getRentFee = expensesValue("rent");
+  const getClothesFee = expensesValue("clothes");
+  const totalExpensesFee = sumTotalFee(getFoodFee, getRentFee, getClothesFee);
+  // again calculate for balance
+  const againCalcBalance = getIncomeValue - totalExpensesFee;
+  // calculate for remaining balance
+  const remainingBalance = againCalcBalance - calculatePercentage;
+  // get and update remaining balance
+  const getRemainingBalance = catchAndUpdate('remaining-balance', remainingBalance);
 })
