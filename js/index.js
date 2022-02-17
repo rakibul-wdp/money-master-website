@@ -1,6 +1,6 @@
 // for expenses
 function calculateExpenses(fee) {
-  let feeNumber = document.getElementById(fee + '-fee');
+  const feeNumber = document.getElementById(fee + '-fee');
   const feeValue = parseFloat(feeNumber.value);
   return feeValue;
 }
@@ -12,6 +12,13 @@ function textToValue(identity) {
   return textToNumber;
 }
 
+// change inner text
+function changeInnerText(update, given) {
+  const getInnerText = document.getElementById(update);
+  const changeText = getInnerText.innerText = given;
+  return changeText;
+}
+
 // calculate button work
 document.getElementById('calculate-button').addEventListener('click', function () {
   const foodFee = calculateExpenses('food');
@@ -21,16 +28,14 @@ document.getElementById('calculate-button').addEventListener('click', function (
   const totalFee = foodFee + rentFee + clothesFee;
 
   // total expenses
-  const totalExpensesGet = document.getElementById("total-expenses");
-  const changeExpenses = totalExpensesGet.innerText = totalFee;
+  const totalExpensesGet = changeInnerText('total-expenses', totalFee);
 
   // get income
   const getIncomeValue = textToValue('income');
   const forBalance = getIncomeValue - totalFee;
 
   // update balance
-  const getBalance = document.getElementById("balance");
-  const updateBalance = getBalance.innerText = forBalance;
+  const updateBalance = changeInnerText('balance', forBalance);
 })
 
 // save button work
@@ -45,8 +50,7 @@ document.getElementById('save-button').addEventListener('click', function () {
   const calculatePercentage = (saveInputValue / 100) * incomeText;
 
   // get saving amount
-  const getSavingAmount = document.getElementById('saving-amount');
-  const savingAmount = getSavingAmount.innerText = calculatePercentage;
+  const savingAmount = changeInnerText('saving-amount', calculatePercentage);
 
   //
   const foodFee = calculateExpenses("food");
@@ -59,6 +63,5 @@ document.getElementById('save-button').addEventListener('click', function () {
   const lastMoney = forBalance - calculatePercentage;
 
   // update remaining balance
-  const getRemainingBalance = document.getElementById('remaining-balance');
-  getRemainingBalance.innerText = lastMoney;
+  const getRemainingBalance = changeInnerText('remaining-balance', lastMoney);
 })
